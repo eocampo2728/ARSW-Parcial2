@@ -6,7 +6,9 @@
 package edu.eci.arsw.controller;
 
 import edu.eci.arsw.CoronavirusAPIApplication;
+import edu.eci.arsw.model.Country;
 import edu.eci.arsw.service.CoronavirusService;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,8 +32,8 @@ public class CoronavirusController {
    @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<?> getCases(){
         try {
-            String stats = coronavirusService.getAllCountries();
-            return new ResponseEntity<>(stats, HttpStatus.ACCEPTED);
+            List<Country> stats = coronavirusService.getAllCountries(); 
+            return new ResponseEntity<>(stats, HttpStatus.ACCEPTED); 
         } catch (Exception e) {
             Logger.getLogger(CoronavirusAPIApplication.class.getName()).log(Level.SEVERE, null, e);
             return new ResponseEntity<>("Unable to return information",HttpStatus.NOT_FOUND);
@@ -41,7 +43,7 @@ public class CoronavirusController {
     @RequestMapping(path = "/{country}", method = RequestMethod.GET)
     public ResponseEntity<?> getCaseByCountry(@PathVariable("country")String country){
         try {
-            String stats = coronavirusService.getCountryByName(country);
+            List<Country> stats = coronavirusService.getCountryByName(country); 
             return new ResponseEntity<>(stats, HttpStatus.ACCEPTED);
         } catch (Exception ex) {
             Logger.getLogger(CoronavirusAPIApplication.class.getName()).log(Level.SEVERE, null, ex);
