@@ -7,6 +7,10 @@ All Countries Json: https://eduardo-ocampo-arsw-t2.herokuapp.com/countries
 
 Json by country: https://eduardo-ocampo-arsw-t2.herokuapp.com/countries/Colombia
 
+## Ejecución
+
+Para ejecutar esta aplicacion localmente es necesario clonar este repositorio y utilizando cualquier compilador ejecutar la clase CoronavirusAPIApplication.java
+
 ## Preparación para el Parcial
 
 Con el objetivo de preparar el examen final del segundo tercio, por favor siga las siguientes instrucciones.
