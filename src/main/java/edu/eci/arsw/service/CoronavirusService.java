@@ -52,7 +52,7 @@ public class CoronavirusService {
             if(countries.containsKey(c.getCountry())){
                 country = countries.get(c.getCountry());
                 country.setConfirmed(country.getConfirmed()+c.getConfirmed());                
-                country.setDeath(country.getDeath()+c.getDeath());
+                country.setDeaths(country.getDeaths()+c.getDeaths());
                 country.setRecovered(country.getRecovered()+c.getRecovered());
             }else{
                 countries.put(c.getCountry(),c);

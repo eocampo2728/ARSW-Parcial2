@@ -3,13 +3,13 @@ package edu.eci.arsw.model;
 public class Country {
     private String country;
     private int confirmed;
-    private int death;
+    private int deaths;
     private int recovered;
     
-    public Country (String country, int confirmed, int death, int recovered){
+    public Country (String country, int confirmed, int deaths, int recovered){
         this.country = country;
         this.confirmed = confirmed;
-        this.death = death;
+        this.deaths = deaths;
         this.recovered = recovered;
     }
     
@@ -29,12 +29,12 @@ public class Country {
         this.confirmed = confirmed;
     }
     
-    public int getDeath(){
-        return death;
+    public int getDeaths(){
+        return deaths;
     }
     
-    public void setDeath(int death){
-        this.death = death;
+    public void setDeaths(int deaths){
+        this.deaths = deaths;
     }
     
     public int getRecovered(){

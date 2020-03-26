@@ -10,13 +10,14 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script type="text/javascript" src="js/app.js"></script>
-        <script type="text/javascript" src="js/apiclient.js"></script>          
-        <!--<link rel="stylesheet" type="text/css" href="/css/index.css" media="screen" />-->
+        <script type="text/javascript" src="js/apiclient.js"></script>       
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="/css/style.css" media="screen" />
     </head> 
-    <body> 
+    <body onload="app.init()"> 
         <h1>COVID-19 CORONAVIRUS ARSW</h1>
         <div>
-            <table id="table">
+            <table id="countries">
                 <thead>
                 <tr>
                     <th>Country</th>

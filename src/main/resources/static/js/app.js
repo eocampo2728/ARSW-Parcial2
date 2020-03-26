@@ -6,7 +6,8 @@
 
 var apiclient = apiclient;
 var app = (function(){
-    var _createTable = function(data){
+    
+    function createTable(data){
         $("#countries > tbody").empty();
         data.map(function (c){
             $("#countries > tbody").append(
@@ -29,8 +30,8 @@ var app = (function(){
     
     return {
         init: function() {
-            apiclient.getStatistics().then(function(data){
-            _createTable(data);});
+            apiclient.getAllCountries().then(function(data){
+            createTable(data);});
         }        
     };
     
