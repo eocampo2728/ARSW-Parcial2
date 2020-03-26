@@ -30,6 +30,10 @@ public class CoronavirusService {
     
     private Gson gson;
     
+    /**
+     * This method consumes the covid19 appi for all the countries
+     * @return it returns a list of countries with all the countries
+     */
     public List<Country> getAllCountries(){
         gson = new Gson();
         HttpResponse<JsonNode> response = null;
@@ -62,6 +66,11 @@ public class CoronavirusService {
         return stats;
     }
     
+    /**
+     * This method consumes the covid19 appi for a specific country
+     * @param country name of the country 
+     * @return it return a list of all the provinces given a country
+     */
     public List<Country> getCountryByName(String country){
         gson = new Gson();
         HttpResponse<JsonNode> response = null;

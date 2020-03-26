@@ -29,7 +29,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class CoronavirusController {
    @Autowired
    CoronavirusService coronavirusService;
-   
+   /**
+    * This request all the countries
+    * @return it return an array with all the countries or a NOT_FOUND error in case is not able to get the data.
+    */
    @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<?> getCases(){
         try {
@@ -41,11 +44,16 @@ public class CoronavirusController {
         }
     }
     
+    /**
+     * This method request the information of a specific country
+     * @param country name of the country to search the information
+     * @return it return an array with all the provinces of the country or a NOT_FOUND error in case is not able to get the data.
+     */
     @RequestMapping(path = "/{country}", method = RequestMethod.GET)
     public ResponseEntity<?> getCaseByCountry(@PathVariable("country")String country){
         try {
             List<Country> stats = coronavirusService.getCountryByName(country); 
-            return new ResponseEntity<>(stats, HttpStatus.ACCEPTED);
+            return new ResponseEntity<>(stats, HttpStatus.OK);
         } catch (Exception e) {
             Logger.getLogger(CoronavirusAPIApplication.class.getName()).log(Level.SEVERE, null, e);
             return new ResponseEntity<>("No se ha podido retornar la informacion", HttpStatus.NOT_FOUND);

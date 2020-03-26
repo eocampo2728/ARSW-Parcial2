@@ -6,6 +6,13 @@ public class Country {
     private int deaths;
     private int recovered;
     
+    /***
+     * Country consturctor
+     * @param country Country name
+     * @param confirmed Cofinrmed cases 
+     * @param deaths Confirmed deaths
+     * @param recovered Recovered people 
+     */
     public Country (String country, int confirmed, int deaths, int recovered){
         this.country = country;
         this.confirmed = confirmed;
