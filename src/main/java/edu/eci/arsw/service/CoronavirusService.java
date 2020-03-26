@@ -13,6 +13,8 @@ import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
 import edu.eci.arsw.model.Country;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -36,13 +38,27 @@ public class CoronavirusService {
                     .header("x-rapidapi-host", "covid-19-coronavirus-statistics.p.rapidapi.com")
                     .header("x-rapidapi-key", "f0ac279634mshfb892495e463495p1334bajsn9a3c972b3eaa")
                     .asJson();
-        } catch (UnirestException ex) {
-            Logger.getLogger(CoronavirusService.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (UnirestException e) {
+            Logger.getLogger(CoronavirusService.class.getName()).log(Level.SEVERE, null, e);
         }
         
         gson = new GsonBuilder().create();
-        JSONArray allCountries = response.getBody().getObject().getJSONObject("data").getJSONArray("coronavirusStats");
+        JSONArray allCountries = response.getBody().getObject().getJSONObject("data").getJSONArray("covid19Stats");
         List<Country> stats = gson.fromJson(allCountries.toString(),new TypeToken<List<Country>>(){}.getType());
+        
+        HashMap<String, Country> countries = new HashMap<>();
+        Country country = null;
+        for (Country c: stats){
+            if(countries.containsKey(c.getCountry())){
+                country = countries.get(c.getCountry());
+                country.setConfirmed(country.getConfirmed()+c.getConfirmed());                
+                country.setDeath(country.getDeath()+c.getDeath());
+                country.setRecovered(country.getRecovered()+c.getRecovered());
+            }else{
+                countries.put(c.getCountry(),c);
+            }
+        }
+        stats = new ArrayList<>(countries.values());
         return stats;
     }
     
@@ -54,8 +70,8 @@ public class CoronavirusService {
             .header("x-rapidapi-host", "covid-19-coronavirus-statistics.p.rapidapi.com")
             .header("x-rapidapi-key", "f0ac279634mshfb892495e463495p1334bajsn9a3c972b3eaa")
                     .asJson();
-        } catch (UnirestException ex) {
-            Logger.getLogger(CoronavirusService.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (UnirestException e) {
+            Logger.getLogger(CoronavirusService.class.getName()).log(Level.SEVERE, null, e);
         }
         
         gson = new GsonBuilder().create();

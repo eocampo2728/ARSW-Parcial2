@@ -1,26 +1,24 @@
 package edu.eci.arsw.model;
 
-import org.json.JSONObject;
-
 public class Country {
-    private String name;
+    private String country;
     private int confirmed;
     private int death;
     private int recovered;
     
-    public Country (String name, int confirmed, int death, int recovered){
-        this.name = name;
+    public Country (String country, int confirmed, int death, int recovered){
+        this.country = country;
         this.confirmed = confirmed;
         this.death = death;
         this.recovered = recovered;
     }
     
-    public String getName(){
-        return name;
+    public String getCountry(){
+        return country;
     }
     
-    public void setName(String name){
-        this.name = name;
+    public void setCountry(String country){
+        this.country = country;
     }
     
     public int getConfirmed(){

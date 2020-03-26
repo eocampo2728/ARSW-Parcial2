@@ -8,6 +8,7 @@ package edu.eci.arsw.controller;
 import edu.eci.arsw.CoronavirusAPIApplication;
 import edu.eci.arsw.model.Country;
 import edu.eci.arsw.service.CoronavirusService;
+import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -24,7 +25,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author Eduardo Ocampo
  */
 @RestController
-@RequestMapping(value = "/covid19")
+@RequestMapping(value = "/countries")
 public class CoronavirusController {
    @Autowired
    CoronavirusService coronavirusService;
@@ -33,7 +34,7 @@ public class CoronavirusController {
     public ResponseEntity<?> getCases(){
         try {
             List<Country> stats = coronavirusService.getAllCountries(); 
-            return new ResponseEntity<>(stats, HttpStatus.ACCEPTED); 
+            return new ResponseEntity<>(stats, HttpStatus.OK); 
         } catch (Exception e) {
             Logger.getLogger(CoronavirusAPIApplication.class.getName()).log(Level.SEVERE, null, e);
             return new ResponseEntity<>("Unable to return information",HttpStatus.NOT_FOUND);
@@ -45,8 +46,8 @@ public class CoronavirusController {
         try {
             List<Country> stats = coronavirusService.getCountryByName(country); 
             return new ResponseEntity<>(stats, HttpStatus.ACCEPTED);
-        } catch (Exception ex) {
-            Logger.getLogger(CoronavirusAPIApplication.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception e) {
+            Logger.getLogger(CoronavirusAPIApplication.class.getName()).log(Level.SEVERE, null, e);
             return new ResponseEntity<>("No se ha podido retornar la informacion", HttpStatus.NOT_FOUND);
         }
     }
