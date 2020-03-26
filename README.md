@@ -3,7 +3,9 @@
 ## Despliegue Heroku
 [App](https://eduardo-ocampo-arsw-t2.herokuapp.com/)
 
-[All Countries Json](https://eduardo-ocampo-arsw-t2.herokuapp.com/countries)
+All Countries Json: https://eduardo-ocampo-arsw-t2.herokuapp.com/countries
+
+Json by country: https://eduardo-ocampo-arsw-t2.herokuapp.com/countries/Colombia
 
 ## Preparación para el Parcial
 
