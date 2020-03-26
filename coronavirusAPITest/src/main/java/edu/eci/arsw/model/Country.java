@@ -1,16 +1,26 @@
 package edu.eci.arsw.model;
 
+import org.json.JSONObject;
+
 public class Country {
     private String name;
     private int confirmed;
     private int death;
     private int recovered;
+    private JSONObject json;
     
     public Country (String name, int confirmed, int death, int recovered){
         this.name = name;
         this.confirmed = confirmed;
         this.death = death;
         this.recovered = recovered;
+    }
+    
+    public Country (JSONObject json){
+        this.json = json;
+        confirmed = Integer.valueOf(json.get("confirmed").toString()); 
+        death = Integer.valueOf(json.get("deaths").toString()); 
+        recovered = Integer.valueOf(json.get("recovered").toString()); 
     }
     
     public String getName(){

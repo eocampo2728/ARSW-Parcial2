@@ -5,10 +5,19 @@
  */
 package edu.eci.arsw.service;
 
+import org.springframework.stereotype.Service;
+
 /**
  *
  * @author Eduardo Ocampo
  */
+@Service
 public class CoronavirusService {
+    public String getAllCountries(){
+        return null;
+    }
     
+    public String getCountryByName(String country){
+        return null;
+    }
 }
