@@ -1,0 +1,26 @@
+        div#bodyDiv {
+            overflow: auto;
+            margin-left: 5%;
+            margin-top: 2%;
+        }
+        table {
+            width: 40%;
+        }
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        table#table tr:nth-child(even) {
+            background-color: #AAAAAA;
+        }
+        table#table tr:nth-child(odd) {
+            background-color: #eee;
+        }
+        table#table th {
+            background-color: black;
+            color: white;
+        }
