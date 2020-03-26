@@ -76,7 +76,7 @@ public class CoronavirusService {
         
         gson = new GsonBuilder().create();
         
-        JSONArray countryStat = response.getBody().getObject().getJSONObject("data").getJSONArray("coronavirusStats");
+        JSONArray countryStat = response.getBody().getObject().getJSONObject("data").getJSONArray("covid19Stats");
         List<Country> stats = gson.fromJson(countryStat.toString(),new TypeToken<List<Country>>(){}.getType());
         return stats;
     }
